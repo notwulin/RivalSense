@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: rivalsense-api
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT "app:create_app()"
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: FLASK_DEBUG
+        value: false
+      - key: FRONTEND_URL
+        value: http://localhost:3000

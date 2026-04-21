@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+/* ── RivalSense 暖棕色设计系统（延续 MVP 视觉风格）── */
+@theme {
+  --color-bg: #f4efe8;
+  --color-bg-accent: #f8c87b;
+  --color-surface: rgba(255, 250, 244, 0.78);
+  --color-surface-strong: #fff7ef;
+  --color-border: rgba(77, 41, 14, 0.12);
+  --color-text-primary: #24170b;
+  --color-text-muted: #705846;
+  --color-danger: #d9472b;
+  --color-warning: #ef8d32;
+  --color-safe: #3b8f54;
+  --color-brand-dark: #20130a;
+  --color-brand-brown: #5a2f0f;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-display: "Avenir Next", "Segoe UI", -apple-system, BlinkMacSystemFont, "PingFang SC", system-ui, sans-serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    color: var(--color-text-primary);
+    background:
+      radial-gradient(circle at top left, rgba(255, 208, 126, 0.55), transparent 30%),
+      radial-gradient(circle at top right, rgba(255, 151, 114, 0.22), transparent 25%),
+      linear-gradient(180deg, #f8f2ea 0%, #f2e7da 100%);
+  }
+}
+
+/* ── 组件层 ── */
+@layer components {
+  .glass-card {
+    max-width: 100%;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 20px 70px rgba(78, 42, 16, 0.12);
+    border-radius: 26px;
+    padding: 24px;
+  }
+
+  .glass-card-strong {
+    max-width: 100%;
+    border: 1px solid rgba(72, 38, 14, 0.08);
+    border-radius: 20px;
+    background: var(--color-surface-strong);
+    padding: 18px;
+  }
+
+  .section-kicker {
+    margin: 0 0 10px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 16px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, var(--color-brand-dark) 0%, var(--color-brand-brown) 100%);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(78, 42, 16, 0.2);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .threat-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .threat-high {
+    color: white;
+    background: var(--color-danger);
+  }
+
+  .threat-medium {
+    color: #61300a;
+    background: #ffd48d;
+  }
+
+  .threat-low {
+    color: white;
+    background: var(--color-safe);
+  }
+
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
+    border-radius: 22px;
+    padding: 20px;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 244, 231, 0.7)),
+      linear-gradient(135deg, rgba(248, 200, 123, 0.26), rgba(255, 151, 114, 0.08));
+  }
+
+  .stat-card .stat-label {
+    color: var(--color-text-muted);
+    font-size: 14px;
+  }
+
+  .stat-card .stat-value {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .input-field {
+    width: 100%;
+    border: 1px solid rgba(57, 32, 12, 0.15);
+    border-radius: 16px;
+    padding: 14px 16px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.65);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s;
+  }
+
+  .input-field:focus {
+    outline: none;
+    border-color: var(--color-brand-brown);
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .pill-tag {
+    display: inline-flex;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.66);
+    color: var(--color-text-muted);
+    font-size: 13px;
+  }
+
+  /* 加载动画 */
+  .pulse-loader {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-brand-brown);
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  /* 淡入动画 */
+  .fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .markdown-preview {
+    display: block;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    white-space: pre-line;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    tab-size: 2;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
