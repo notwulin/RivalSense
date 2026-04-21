@@ -9,8 +9,8 @@
 ---
 
 > [!TIP]
-> **在线作品集演示**
-> Demo URL: https://rival-sense.vercel.app/
+> **在线作品集演示**  
+> Demo URL: https://rival-sense.vercel.app/  
 > 演示模式：`NEXT_PUBLIC_DEMO_MODE=true`，前端将进入 **Demo 模式**，直接展示内置的 Mock 采样数据与模拟抓取进度，无需启动后端服务。
 
 ---
