@@ -7,29 +7,30 @@
 [![License-MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 
 ---
-
 > [!TIP]
-> **在线作品集演示**  
-> Demo URL: https://rival-sense.vercel.app/  
-> 演示模式：`NEXT_PUBLIC_DEMO_MODE=true`，前端将进入 **Demo 模式**，直接展示内置的 Mock 采样数据与模拟抓取进度，无需启动后端服务。
-
+> **🚀 在线作品集演示 (Live Demo)**  
+> **URL**: [https://rival-sense.vercel.app/](https://rival-sense.vercel.app/)  
+> **演示模式**: `NEXT_PUBLIC_DEMO_MODE=true`  
+> 该模式下前端将直接展示内置的 Mock 采样数据与模拟进度，无需启动后端服务，适合快速查看交互效果。
 ---
 
-## 你会看到什么
+## 💎 产品全景(Quick Look)
 
-- **Dashboard**：竞品状态总览、威胁等级实时预警、最新分析简报及核心数据统计卡片。
+- **智能看板**：竞品状态总览、威胁等级实时预警、最新分析简报及核心数据统计卡片。
 - **竞品管理**：新增/编辑/删除竞品；触发单点异步抓取，深度查看分析面板。
 - **报告中心**：管理历史竞品报告与每日全量简报，支持一键导出 Markdown 或清理旧数据。
 
-## 核心能力
-
+## 🌟 核心能力(Key Capabilities)
+### 1. 深度信号捕获
 - **异步抓取**：单竞品与全量抓取均走后台 job，可轮询进度并支持前端切页恢复
-- **维度发现引擎**：覆盖 RSS、官网/博客、开发者社区、评论站点与结构化搜索API。
+- **维度发现引擎**：覆盖 RSS、官网/博客、GitHub Issues开发者社区、Reddit评论站点、结构化搜索API等主流技术与社交平台。
+
+### 2. 智能处理闭环
 - **去噪与语义打分**：基于相关性算法自动过滤无效信息，提取高价值商业信号。
 - **本地 NLP 预处理**：集成 VADER/SnowNLP 情感分析、jieba 分词、TF-IDF 索引及 KMeans 聚类。
 - **报告闭环**：每日自动/手动合成简报，本地统计压缩极大降低了大模型 Token 消耗。
 
-## 技术栈
+## 🛠️ 技术栈
 
 | 领域 | 技术方案 |
 | :--- | :--- |
@@ -38,7 +39,7 @@
 | **NLP/Analysis** | nltk, SnowNLP, jieba, scikit-learn, pandas, numpy |
 | **AI Summary** | Gemini / DeepSeek (未配置时自动本地兜底) |
 
-## 快速开始
+## ⚡ 快速开始
 
 以下命令均在项目根目录执行。
 
@@ -58,13 +59,13 @@ backend/venv/bin/pip install -r backend/requirements.txt
 npm --prefix frontend install
 ```
 
-2. 配置环境变量
+2. **配置环境变量**
 
 ```bash
 cp .env.example backend/.env
 ```
 
-3. 一键启动
+3. **一键启动**
 
 ```bash
 ./start.sh
@@ -76,7 +77,7 @@ cp .env.example backend/.env
 - 后端：http://localhost:5001
 - 健康检查：http://localhost:5001/api/health
 
-## 环境变量（最小集）
+## 🔑 环境变量（最小集）
 
 主要配置见 `.env.example`，常用项：
 
@@ -88,7 +89,7 @@ cp .env.example backend/.env
 - `GEMINI_API_KEY` / `DEEPSEEK_API_KEY`：可选，大模型摘要
 - `TAVILY_API_KEY` / `BRAVE_SEARCH_API_KEY` / `SERPAPI_API_KEY`：可选，结构化搜索发现
 
-## API 快速索引
+## 🔍 API 快速索引
 
 默认 Base URL：`http://localhost:5001/api`
 
@@ -103,14 +104,14 @@ cp .env.example backend/.env
 
 完整接口见 [docs/api.md](docs/api.md)。
 
-## 部署
+## 🛳️ 部署
 
 - 作品集主入口：Vercel + Demo Mode（推荐）
 - 技术补充：Render Free 部署 Flask 后端（可选）
 
 详细步骤见 [docs/deployment.md](docs/deployment.md)。
 
-## 项目结构
+## 📂 项目结构
 
 ```text
 .
@@ -130,16 +131,16 @@ cp .env.example backend/.env
 └── render.yaml
 ```
 
-## 文档导航
+## 🛳️ 文档导航
 
-- [📐 系统架构](docs/architecture.md) | [🔌 API 参考](docs/api.md) | [🛳️ 部署指南](docs/deployment.md)
-- [🔍 数据引擎](docs/data-engine.md) | [📊 分析引擎](docs/analysis-engine.md) | [🛠️ 运维手册](docs/operations.md)
+- [系统架构](docs/architecture.md) | [API 参考](docs/api.md) | [部署指南](docs/deployment.md)
+- [数据引擎](docs/data-engine.md) | [分析引擎](docs/analysis-engine.md) | [运维手册](docs/operations.md)
 
-## 当前限制
+## ⚠️ 当前限制
 
 - 后台 job 当前存于 Flask 进程内存，后端重启后历史 `job_id` 失效
 - SQLite 适合本地与 MVP 单进程场景，多实例建议迁移 PostgreSQL
 
-## License
+---
 
 本项目采用 [MIT License](LICENSE)。
