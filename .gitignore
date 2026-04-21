@@ -25,7 +25,7 @@ yarn-error.log*
 # Runtime data
 backend/data/*.db
 backend/data/*.db-*
-reports/
+/reports/
 data/
 
 # Local editor
